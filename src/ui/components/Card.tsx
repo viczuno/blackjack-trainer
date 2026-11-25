@@ -31,7 +31,7 @@ export function Card({ card, delay = 0, rotated, size = 'md', style }: Props) {
   const reduce = useReducedMotion();
   const fast = useSettings((s) => s.fastMode);
   const still = reduce || fast;
-  const dims = (size === 'sm' ? { '--w': '46px', '--h': '65px' } : {}) as CSSProperties;
+  const dims = (size === 'sm' ? { '--w': '42px', '--h': '59px' } : {}) as CSSProperties;
   return (
     <motion.div
       className={styles.card}

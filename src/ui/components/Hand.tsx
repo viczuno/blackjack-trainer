@@ -40,9 +40,11 @@ interface Props {
   /** Deal-order delay for each of the first two cards, in seconds. */
   delays: [number, number];
   label: string;
+  /** Short status after the total, e.g. "Stood ✓", "Your turn". */
+  status?: string;
 }
 
-export function Hand({ hand, active, compact, delays, label }: Props) {
+export function Hand({ hand, active, compact, delays, label, status }: Props) {
   const bj = isBlackjack(hand);
   const b = badge(hand);
   const bust = handTotal(hand.cards).total > 21;
@@ -74,11 +76,12 @@ export function Hand({ hand, active, compact, delays, label }: Props) {
           styles.pill,
           bj && styles.pillGold,
           bust && styles.pillBust,
-          active && !bust && styles.pillGold,
+          active && styles.pillActive,
         )}
       >
-        {totalLabel(hand.cards, bj)}
-        {hand.doubled ? ' · ×2' : ''}
+        <strong>{totalLabel(hand.cards, bj)}</strong>
+        {hand.doubled ? ' ×2' : ''}
+        {status && <span className={styles.status}>{status}</span>}
       </span>
     </div>
   );

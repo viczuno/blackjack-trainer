@@ -26,21 +26,23 @@ function HintControls() {
   const canUndo = useGame((s) => s.undoSnapshot !== null);
   const testMode = hintMode === 'off';
   return (
-    <div className={styles.right}>
+    <div className={clsx(styles.right, styles.hintControls)}>
+      <span className={styles.hintLabel}>{testMode ? 'Test mode' : 'Best-play hints'}</span>
       <Switch
-        label={testMode ? 'Test mode' : 'Hints'}
+        label={testMode ? 'Test mode' : 'Best-play hints'}
+        hideLabel
         checked={hintMode === 'always'}
         disabled={testMode}
         onChange={(v) => setHintMode(v ? 'always' : 'onMistake')}
       />
       <button
         type="button"
-        className={styles.btn}
+        className={styles.undo}
         onClick={undo}
         disabled={!canUndo || testMode}
         aria-keyshortcuts="U"
       >
-        ↶ Undo
+        Undo · U
       </button>
     </div>
   );
@@ -83,6 +85,11 @@ function PlayBar() {
         <span className={styles.infoMain}>
           {best ? handName(best.lookup) : ''} vs dealer {up ? rankLabel(up.rank) : ''}
         </span>
+        <span className={styles.infoSub}>
+          Bet {money(hand.bet)}
+          {best?.available.includes('double') ? ` · Double adds ${money(hand.bet)}` : ''}
+          {best?.available.includes('split') ? ` · Split adds ${money(hand.bet)}` : ''}
+        </span>
       </div>
       <div className={styles.buttons} role="group" aria-label="Actions">
         {ACTIONS.map(({ action, key }) => {
@@ -101,13 +108,16 @@ function PlayBar() {
             >
               {isBest && <span className={styles.bestTag}>★ BEST PLAY</span>}
               <span className={styles.actionTop}>
-                <span className={styles.dot} aria-hidden />
+                {!isBest && <span className={styles.dot} aria-hidden />}
                 {ACTION_LABEL[action]}
+              </span>
+              {reason ? (
+                <span className={styles.reason}>{reason}</span>
+              ) : (
                 <span className={styles.key} aria-hidden>
                   {key}
                 </span>
-              </span>
-              {reason && <span className={styles.reason}>{reason}</span>}
+              )}
             </button>
           );
         })}

@@ -6,9 +6,11 @@ interface SwitchProps {
   onChange: (v: boolean) => void;
   label: string;
   disabled?: boolean;
+  /** Keep the label for screen readers only. */
+  hideLabel?: boolean;
 }
 
-export function Switch({ checked, onChange, label, disabled }: SwitchProps) {
+export function Switch({ checked, onChange, label, disabled, hideLabel }: SwitchProps) {
   return (
     <button
       type="button"
@@ -19,7 +21,7 @@ export function Switch({ checked, onChange, label, disabled }: SwitchProps) {
       disabled={disabled}
     >
       <span className={styles.track} aria-hidden />
-      {label}
+      {hideLabel ? <span className="sr-only">{label}</span> : label}
     </button>
   );
 }

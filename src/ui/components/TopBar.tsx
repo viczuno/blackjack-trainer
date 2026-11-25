@@ -35,7 +35,7 @@ export function TopBar({ route }: { route: Route }) {
         {rulesSummary(rules)}
       </span>
       <div className={styles.bankroll} aria-label={`Bankroll ${money(bankroll)}`}>
-        <span>Bankroll</span>
+        <span>Practice bankroll</span>
         <strong data-testid="bankroll">{money(bankroll)}</strong>
       </div>
     </header>

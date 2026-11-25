@@ -23,7 +23,7 @@
   --radius-lg: 18px;
   --font: 'Inter', system-ui, sans-serif;
 
-  --card-w: 64px;
-  --card-h: 90px;
+  --card-w: 56px;
+  --card-h: 78px;
   --focus: 0 0 0 3px rgba(233, 196, 106, 0.8);
 }

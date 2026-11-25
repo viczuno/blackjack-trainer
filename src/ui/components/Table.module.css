@@ -63,52 +63,33 @@
 .shoe,
 .tray {
   position: absolute;
-  top: 24px;
+  top: 22px;
+}
+.shoe {
+  right: 40px;
+}
+.tray {
+  left: 40px;
+}
+.stack {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  padding-top: 9px;
 }
-.shoe {
-  right: 32px;
-}
-.tray {
-  left: 32px;
-}
-.shoeBox {
-  width: 78px;
-  height: 58px;
-  border-radius: 10px 10px 6px 6px;
-  background: linear-gradient(180deg, #2a2a2a, #111);
-  border: 2px solid rgba(233, 196, 106, 0.35);
-  position: relative;
-  overflow: hidden;
-}
-.shoeBox::after {
-  content: '';
+.stack > .stackCard + .stackCard {
   position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: 6px;
-  height: 34px;
-  border-radius: 4px;
-  background: repeating-linear-gradient(90deg, #7a1f2b 0 2px, #5b1520 2px 4px);
-  transform: skewX(-18deg);
 }
-.trayBox {
-  width: 70px;
-  height: 58px;
-  border-radius: 8px;
-  border: 2px dashed rgba(243, 246, 244, 0.25);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 4px;
+.stackCard {
+  position: relative;
 }
-.trayStack {
+.trayEmpty {
   width: 46px;
-  background: repeating-linear-gradient(0deg, #fbfaf6 0 2px, #c9c6bd 2px 3px);
-  border-radius: 3px;
+  height: 65px;
+  border-radius: 6px;
+  border: 2px dashed rgba(243, 246, 244, 0.25);
 }
 .small {
   font-size: 11px;
@@ -126,17 +107,50 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   pointer-events: auto;
   width: 19%;
-  min-width: 150px;
+  min-width: 140px;
+}
+.emptySeat {
+  gap: 8px;
+}
+.sitSpot {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px dashed rgba(243, 246, 244, 0.3);
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  color: rgba(243, 246, 244, 0.45);
+}
+.sitHere {
+  border: 1px solid var(--gold);
+  background: rgba(10, 18, 16, 0.35);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  min-height: 28px;
+}
+.sitHere:hover:not(:disabled) {
+  background: rgba(233, 196, 106, 0.15);
+}
+.sitHere:disabled {
+  opacity: 0.45;
+}
+.seatNo {
+  font-size: 11px;
+  color: rgba(243, 246, 244, 0.55);
 }
 .handsRow {
   display: flex;
   gap: 10px;
   align-items: flex-end;
   justify-content: center;
-  min-height: 112px;
+  min-height: 104px;
 }
 
 .hand {
@@ -145,28 +159,28 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  padding: 6px;
+  padding: 6px 6px 7px;
   border-radius: 12px;
   transition:
     box-shadow 0.2s,
     background 0.2s;
 }
 .activeHand {
+  background: var(--gold);
   box-shadow:
     0 0 0 2px var(--gold),
-    0 0 24px rgba(233, 196, 106, 0.55);
-  background: rgba(233, 196, 106, 0.08);
+    0 0 28px rgba(233, 196, 106, 0.55);
 }
 .cards {
   display: flex;
   align-items: flex-start;
 }
 .cards > * + * {
-  margin-left: calc(var(--overlap, -42px));
+  margin-left: calc(var(--overlap, -36px));
   margin-top: 4px;
 }
 .compact {
-  --overlap: -30px;
+  --overlap: -28px;
 }
 .rotatedSlot {
   margin-left: -20px !important;
@@ -182,6 +196,27 @@
   color: var(--text);
   border: 1px solid rgba(243, 246, 244, 0.15);
   white-space: nowrap;
+}
+.pill strong {
+  font-weight: 800;
+}
+.status {
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.pillActive {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-on-color);
+}
+.pillActive .status {
+  color: var(--text-on-color);
+}
+.pillGold .status,
+.pillBust .status {
+  color: var(--text-on-color);
 }
 .pillGold {
   background: var(--gold);
@@ -227,8 +262,8 @@
 }
 
 .betSpot {
-  width: 66px;
-  height: 66px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: 2px solid rgba(233, 196, 106, 0.55);
   display: grid;
@@ -242,8 +277,8 @@
 }
 .chipStack {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
 }
 .chipStack > * {
   position: absolute;
@@ -251,7 +286,8 @@
 }
 .betAmount {
   position: absolute;
-  bottom: -9px;
+  bottom: -10px;
+  white-space: nowrap;
   font-size: 11px;
   font-weight: 700;
   background: rgba(10, 18, 16, 0.85);
@@ -260,21 +296,26 @@
 }
 
 .name {
-  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 11px;
   font-weight: 700;
   padding: 3px 10px;
   border-radius: 999px;
-  background: rgba(10, 18, 16, 0.65);
+  background: rgba(10, 18, 16, 0.7);
   color: var(--text-muted);
   white-space: nowrap;
 }
 .nameYou {
-  background: var(--gold);
-  color: var(--text-on-color);
+  color: var(--text);
 }
-.nameActive {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
+.nameDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
 }
 
 .banner {
@@ -363,8 +404,12 @@
     transform: none;
     flex: none;
     width: auto;
-    min-width: 150px;
+    min-width: 140px;
     scroll-snap-align: center;
+  }
+  .emptySeat {
+    min-width: 100px;
+    justify-content: flex-end;
   }
   .banner {
     top: 120px;

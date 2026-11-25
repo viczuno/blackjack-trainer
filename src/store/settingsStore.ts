@@ -73,7 +73,7 @@ export function rulesSummary(r: Rules): string {
     `${r.decks} decks`,
     r.dealerHitsSoft17 ? 'H17' : 'S17',
     r.doubleAfterSplit ? 'DAS' : 'No DAS',
-    r.lateSurrender ? 'Surrender' : 'No surrender',
+    r.lateSurrender ? 'Late surrender' : 'No surrender',
     ...(r.resplitAces ? ['RSA'] : []),
   ].join(' · ');
 }

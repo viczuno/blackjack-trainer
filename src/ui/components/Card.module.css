@@ -38,7 +38,7 @@
   align-items: center;
   line-height: 1;
   font-weight: 800;
-  font-size: calc(var(--w, var(--card-w)) * 0.26);
+  font-size: calc(var(--w, var(--card-w)) * 0.27);
 }
 .corner span:last-child {
   font-size: 0.8em;
@@ -54,18 +54,30 @@
   place-self: center;
   font-size: calc(var(--w, var(--card-w)) * 0.5);
   line-height: 1;
+  transform: translate(8%, 10%);
 }
 .back {
   transform: rotateY(180deg);
-  background:
-    repeating-linear-gradient(45deg, rgba(233, 196, 106, 0.18) 0 4px, transparent 4px 9px),
-    linear-gradient(160deg, #7a1f2b, #4c111a);
+  background: radial-gradient(circle at 50% 50%, #b3262f 0%, #8e1b25 55%, #6d121b 100%);
   border: 3px solid var(--card-face);
+}
+.back::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 3px;
 }
 .back::after {
   content: '';
   position: absolute;
-  inset: 4px;
-  border: 1px solid rgba(233, 196, 106, 0.6);
-  border-radius: 4px;
+  left: 50%;
+  top: 50%;
+  width: 34%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: linear-gradient(135deg, #ff5a5f, #d7232e);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 2px;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
 }

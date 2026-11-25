@@ -25,6 +25,33 @@
   font-size: 16px;
   font-weight: 700;
 }
+.infoSub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.hintControls {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.hintLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.undo {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 4px 0;
+  min-height: 28px;
+}
+.undo:hover:not(:disabled) {
+  color: var(--text);
+}
+.undo:disabled {
+  opacity: 0.45;
+}
 .buttons {
   display: flex;
   gap: 10px;
@@ -44,9 +71,10 @@
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  min-width: 86px;
-  min-height: 58px;
-  padding: 8px 12px;
+  min-width: 82px;
+  min-height: 60px;
+  padding: 8px 14px;
+  justify-content: center;
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   background: var(--bg-surface-2);
@@ -79,37 +107,47 @@
   background: var(--c);
 }
 .key {
-  font-size: 11px;
+  font-size: 10px;
+  font-weight: 700;
   color: var(--text-muted);
   border: 1px solid var(--border);
+  background: var(--bg-app);
   border-radius: 4px;
   padding: 0 5px;
+  min-width: 16px;
+  text-align: center;
 }
 .reason {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-muted);
   white-space: nowrap;
 }
-.best {
+.best,
+.best:hover:not(:disabled) {
   border-color: var(--c);
-  background: color-mix(in srgb, var(--c) 18%, var(--bg-surface-2));
-  box-shadow:
-    0 0 0 1px var(--c),
-    0 0 18px color-mix(in srgb, var(--c) 45%, transparent);
+  background: var(--c);
+  color: var(--text-on-color);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--c) 45%, transparent);
+}
+.best .key {
+  border-color: transparent;
+  background: rgba(10, 18, 16, 0.85);
+  color: var(--text);
 }
 .bestTag {
   position: absolute;
   top: -10px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   white-space: nowrap;
   padding: 2px 7px;
   border-radius: 6px;
-  background: var(--gold);
-  color: var(--text-on-color);
+  background: var(--bg-app);
+  color: var(--c);
+  border: 1px solid var(--c);
 }
 .hit {
   --c: var(--hit);
@@ -250,6 +288,12 @@
 }
 
 @media (max-width: 768px) {
+  .hintControls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+  }
   .bar {
     grid-template-columns: 1fr;
     gap: 10px;
