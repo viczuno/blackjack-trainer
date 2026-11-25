@@ -1,0 +1,347 @@
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+.cardTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Coach */
+.coach {
+  border-color: color-mix(in srgb, var(--gold) 45%, var(--border));
+  min-height: 128px;
+}
+.coachMistake {
+  border-color: var(--hit);
+}
+.coachHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.coachIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  background: var(--gold);
+  color: var(--text-on-color);
+  flex: none;
+}
+.coachIconBad {
+  background: var(--hit);
+}
+.coachIconGood {
+  background: var(--double);
+}
+.coachAction {
+  font-size: 20px;
+  font-weight: 800;
+}
+.coachText {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.coachText b {
+  color: var(--text);
+}
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--bg-app);
+  border: 1px solid var(--border);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.tabs button {
+  border: 0;
+  background: transparent;
+  padding: 4px 10px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-height: 28px;
+}
+.tabs button[aria-selected='true'] {
+  background: var(--bg-surface-2);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+/* Strategy grid */
+.grid {
+  border-collapse: separate;
+  border-spacing: 2px;
+  width: 100%;
+  table-layout: fixed;
+  font-size: 11px;
+}
+.grid th {
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 2px 0;
+  transition: opacity 0.15s;
+}
+.grid th[scope='row'] {
+  text-align: right;
+  padding-right: 6px;
+  white-space: nowrap;
+  width: 44px;
+}
+.grid td {
+  height: 22px;
+  text-align: center;
+  font-weight: 800;
+  border-radius: 4px;
+  color: var(--text-on-color);
+  transition: opacity 0.15s;
+  position: relative;
+}
+.lg {
+  font-size: 13px;
+}
+.lg td {
+  height: 32px;
+  min-width: 38px;
+}
+.lg th[scope='row'] {
+  width: 64px;
+}
+.cH {
+  background: var(--hit);
+}
+.cS {
+  background: var(--stand);
+}
+.cD,
+.cDs {
+  background: var(--double);
+}
+.cP,
+.cPh {
+  background: var(--split);
+}
+.cRh,
+.cRs,
+.cRp {
+  background: var(--surrender);
+}
+.dim {
+  opacity: 0.35;
+}
+.target {
+  outline: 3px solid #fff;
+  outline-offset: 1px;
+  z-index: 1;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+.hot {
+  color: var(--text);
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.legend i {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10px;
+  color: var(--text-on-color);
+  border-radius: 4px;
+  padding: 1px 4px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Stat tiles */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.tile {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+}
+.tileLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.tileValue {
+  font-size: 22px;
+  font-weight: 800;
+}
+.missed {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.missed b {
+  color: var(--text);
+}
+
+/* Toast */
+.toastWrap {
+  position: fixed;
+  top: 76px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  width: min(520px, calc(100% - 32px));
+}
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px 10px 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+}
+.toastMistake {
+  border-color: var(--hit);
+  background: color-mix(in srgb, var(--hit) 16%, var(--bg-surface-2));
+}
+.toast p {
+  flex: 1;
+}
+.toast button {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 13px;
+  min-height: 36px;
+}
+
+/* Modal */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(0, 0, 0, 0.6);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+.modal {
+  width: min(560px, 100%);
+  max-height: 85vh;
+  overflow: auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+.modal h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* Sidebar & bottom sheet */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.peek {
+  display: none;
+}
+.sheet {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .peek {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-bottom: 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: var(--bg-surface-2);
+    font-weight: 700;
+    min-height: 44px;
+  }
+  .sheet {
+    display: block;
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 40;
+    max-height: 82vh;
+    overflow: auto;
+    background: var(--bg-app);
+    border-top: 1px solid var(--border);
+    border-radius: 20px 20px 0 0;
+    padding: 12px 12px calc(16px + env(safe-area-inset-bottom));
+    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.5);
+  }
+  .sheetBackdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 39;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .sheetHandle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0;
+    background: transparent;
+    font-weight: 700;
+    padding: 4px 4px 12px;
+    min-height: 44px;
+  }
+}
