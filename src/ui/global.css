@@ -1,0 +1,13 @@
+:root {
+  --bg-app: #0a1210;
+  --text: #f3f6f4;
+  --gold: #e9c46a;
+  --felt: #145a3a;
+  --font: 'Inter', system-ui, sans-serif;
+}
+body {
+  margin: 0;
+  background: var(--bg-app);
+  color: var(--text);
+  font-family: var(--font);
+}
