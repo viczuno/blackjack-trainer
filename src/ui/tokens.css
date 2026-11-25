@@ -1,0 +1,29 @@
+:root {
+  --bg-app: #0a1210;
+  --bg-surface: #111c17;
+  --bg-surface-2: #18261f;
+  --border: #253830;
+  --text: #f3f6f4;
+  --text-muted: #93a69c;
+  --text-on-color: #0a1210;
+  --gold: #e9c46a;
+  --felt: #145a3a;
+  --felt-deep: #0c3a25;
+  --rail: #4a2e17;
+  --hit: #ef5b5b;
+  --stand: #f4c542;
+  --double: #34c77b;
+  --split: #4f8ef7;
+  --surrender: #a98bfa;
+  --card-face: #fbfaf6;
+  --card-red: #d23a3a;
+  --card-black: #14171a;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --font: 'Inter', system-ui, sans-serif;
+
+  --card-w: 56px;
+  --card-h: 78px;
+  --focus: 0 0 0 3px rgba(233, 196, 106, 0.8);
+}

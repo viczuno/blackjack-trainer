@@ -1,0 +1,37 @@
+.chip {
+  --c: #c0392b;
+  width: var(--size, 44px);
+  height: var(--size, 44px);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: calc(var(--size, 44px) * 0.3);
+  color: #fff;
+  background:
+    radial-gradient(circle, var(--c) 0 54%, transparent 55%),
+    repeating-conic-gradient(var(--c) 0 30deg, #f3f6f4 30deg 45deg);
+  border: 2px solid rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  flex: none;
+  transition: transform 0.12s;
+}
+button.chip:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+button.chip:disabled {
+  opacity: 0.4;
+}
+.v5 {
+  --c: #b8322a;
+}
+.v25 {
+  --c: #1b7a43;
+}
+.v100 {
+  --c: #1c1c1c;
+}
+.v500 {
+  --c: #6236b8;
+}
